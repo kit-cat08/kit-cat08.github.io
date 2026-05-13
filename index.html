@@ -1,110 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Webpage Title (will show on tab) -->
-    <title>Professional Portfolio</title>
-    <style>
-        /* Basic styling for the page */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            margin: 1rem 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-        section {
-            padding: 2rem;
-            border-bottom: 1px solid #ddd;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: #fff;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Cathy Vo | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --text:#f3f4f6;
+    --muted:#9ca3af;
+    --purple:#8b5cf6;
+    --purple-light:#a78bfa;
+    --highlight:#d8ccff;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(139,92,246,0.18) 0%, transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(168,85,247,0.14) 0%, transparent 22%),
+        radial-gradient(circle at 70% 75%, rgba(139,92,246,0.12) 0%, transparent 28%),
+        radial-gradient(circle at 25% 85%, rgba(124,58,237,0.12) 0%, transparent 25%),
+        linear-gradient(135deg, #08090f 0%, #0d1117 45%, #111827 100%);
+}
+
+/* GRID BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px);
+    background-size:80px 80px;
+    mask-image:radial-gradient(circle at center, black 30%, transparent 85%);
+    z-index:-3;
+}
+
+/* BLOBS */
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.35;
+    z-index:-2;
+    pointer-events:none;
+}
+
+.blob-1{width:500px;height:500px;background:#7c3aed;top:-120px;left:-100px;}
+.blob-2{width:400px;height:400px;background:#9333ea;bottom:-120px;right:-80px;}
+.blob-3{width:300px;height:300px;background:#6d28d9;top:40%;left:65%;}
+
+/* CURVES */
+.background-lines{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.curve{
+    position:absolute;
+    border:1px solid rgba(167,139,250,0.14);
+    border-radius:50%;
+}
+
+.curve-1{width:1000px;height:1000px;top:-500px;right:-350px;}
+.curve-2{width:800px;height:800px;bottom:-420px;left:-300px;}
+.curve-3{width:600px;height:600px;top:25%;left:60%;}
+.curve-4{width:350px;height:350px;top:10%;left:8%;}
+
+/* DOTS */
+.dot{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:rgba(196,181,253,0.8);
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(139,92,246,0.9);
+}
+
+.dot-1{top:15%;left:20%;}
+.dot-2{top:35%;right:18%;}
+.dot-3{bottom:20%;left:12%;}
+.dot-4{bottom:30%;right:25%;}
+.dot-5{top:60%;left:55%;}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(10,12,18,0.95);
+    border-bottom:1px solid rgba(139,92,246,0.12);
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    list-style:none;
+    padding:1rem;
+}
+
+nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:500;
+}
+
+nav a:hover{color:white;}
+
+/* LAYOUT */
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+header{
+    padding:8rem 0 2rem;
+}
+
+.hero h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#fff,#d8ccff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:700px;
+}
+
+/* SECTIONS */
+section{
+    padding:2rem 0;
+}
+
+section h2{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+/* ABOUT */
+.about-card{
+    background:rgba(20,24,34,0.82);
+    border:1px solid rgba(139,92,246,0.12);
+    border-radius:22px;
+    padding:1.6rem;
+}
+
+.about-card p{color:var(--muted);}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem;
+    margin-top:1.2rem;
+}
+
+.stat-box{
+    background:rgba(20,24,34,0.82);
+    border:1px solid rgba(139,92,246,0.12);
+    border-radius:18px;
+    padding:1.2rem;
+}
+
+.stat-box h3{
+    color:var(--highlight);
+    font-size:1.8rem;
+}
+
+.stat-box p{color:var(--muted);}
+
+/* CARDS */
+.card{
+    background:rgba(20,24,34,0.82);
+    border:1px solid rgba(139,92,246,0.12);
+    border-radius:22px;
+    padding:1.5rem;
+    margin-bottom:1rem;
+}
+
+.tag{
+    display:inline-block;
+    background:rgba(139,92,246,0.12);
+    padding:0.4rem 0.8rem;
+    border-radius:999px;
+    color:var(--highlight);
+    font-size:0.85rem;
+}
+
+.time{color:var(--muted);}
+
+ul{
+    margin-top:1rem;
+    padding-left:1.2rem;
+}
+
+li{
+    color:var(--muted);
+    margin-bottom:0.5rem;
+}
+
+/* CONTACT */
+.contact-card{
+    background:rgba(20,24,34,0.82);
+    border:1px solid rgba(139,92,246,0.12);
+    border-radius:22px;
+    padding:1.5rem;
+}
+
+.contact-card a{
+    color:var(--purple-light);
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:2rem;
+    color:var(--muted);
+}
+
+/* FIX NAV OFFSET */
+html{
+    scroll-padding-top:90px;
+}
+
+</style>
 </head>
+
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact Info</a>
-        </nav>
-    </header>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            <!-- Add a brief introduction about yourself here -->
-            Hello! My name is Cathy Vo. I am passionate about [your interests or profession]. 
-            Welcome to my portfolio website!
-        </p>
-    </section>
+<!-- BACKGROUND -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>
-            <!-- Add a list or description of your projects here -->
-            Here are some of the projects I have worked on:
-        </p>
-        <ul>
-            <li>Project 1: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-            <li>Project 2: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-        </ul>
-    </section>
+<div class="background-lines">
+    <div class="curve curve-1"></div>
+    <div class="curve curve-2"></div>
+    <div class="curve curve-3"></div>
+    <div class="curve curve-4"></div>
 
-    <!-- Credentials Section -->
-    <section id="credentials">
-        <h2>Credentials</h2>
-        <p>
-            <!-- Add your credentials, certifications, or achievements here -->
-            I have earned the following certifications and achievements:
-        </p>
-        <ul>
-            <li>Certification 1: [Details]</li>
-            <li>Certification 2: [Details]</li>
-            <li>Certification 3: [Details]</li>
-            <!-- Add images of your certification digital badges -->
-        </ul>
-    </section>
+    <div class="dot dot-1"></div>
+    <div class="dot dot-2"></div>
+    <div class="dot dot-3"></div>
+    <div class="dot dot-4"></div>
+    <div class="dot dot-5"></div>
+</div>
 
-    <!-- Contact Info Section -->
-    <section id="contact">
-        <h2>Contact Info</h2>
-        <p>
-            <!-- Add your contact information here -->
-            Feel free to reach out to me:
-        </p>
-        <ul>
-            <li>Email: cathyvo2118@gmai.com</li>
-            <li>LinkedIn: <a href="[your-linkedin-profile]" target="_blank">[Your LinkedIn]</a></li>
-        </ul>
-    </section>
+<!-- NAV -->
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2026 Cathy Vo. All rights reserved.</p>
-    </footer>
+<!-- HERO -->
+<header>
+<div class="container hero">
+    <h1>Cathy Vo</h1>
+    <p>STEM student focused on healthcare, research, and technology-driven problem solving.</p>
+</div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+
+<h2>About Me</h2>
+
+<div class="about-card">
+    <p>
+        Extremely motivated, passionate, and diligent high school junior interested in STEM,
+        seeking to gain connections and further hands-on experience in a lab setting to develop
+        knowledge and skills.
+    </p>
+</div>
+
+<div class="stats">
+    <div class="stat-box">
+        <h3>420+</h3>
+        <p>Volunteer Hours</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>3+</h3>
+        <p>Leadership Roles</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>4.0</h3>
+        <p>GPA</p>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+
+<h2>Projects</h2>
+
+<div class="card">
+    <h3>User-friendly To-Do List Program</h3>
+    <span class="tag">Java</span>
+    <p class="time">2025</p>
+    <p>A practical application designed to help students remain organized during exam season.</p>
+    <a href="https://github.com/phAPCSAperiod2/final-project-kit-cat08" target="_blank">View GitHub →</a>
+</div>
+
+<div class="card">
+    <h3>Pokemon Virtual Life Simulator</h3>
+    <span class="tag">Interactive Simulation</span>
+    <p class="time">2025</p>
+    <p>Game where users create and care for virtual Pokemon.</p>
+    <a href="https://github.com/kit-cat08/Pokemon-Virtual-Life" target="_blank">View GitHub →</a>
+</div>
+
+</div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+<div class="container">
+
+<h2>Leadership & Volunteer Experience</h2>
+
+<div class="card">
+    <h3>Sharp Grossmont Hospital</h3>
+    <span class="tag">Main Lobby Assistant</span>
+    <p class="time">Oct 2023 – Present | 420+ Hours</p>
+    <ul>
+        <li>Assist staff with deliveries and visitor support</li>
+        <li>Escort patients and provide wheelchair assistance</li>
+        <li>Maintain supplies and sanitation</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Surfrider Club</h3>
+    <span class="tag">Vice President</span>
+    <p class="time">Sept 2024 – Present</p>
+    <ul>
+        <li>Lead meetings and organize beach cleanups</li>
+        <li>Coordinate sustainability initiatives</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>HEAL Club</h3>
+    <span class="tag">Co-President</span>
+    <p class="time">Sept 2025 – Present</p>
+    <ul>
+        <li>Lead health-focused meetings and presentations</li>
+        <li>Provide internship and certification opportunities</li>
+    </ul>
+</div>
+
+</div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+<div class="container">
+
+<h2>Credentials & Awards</h2>
+
+<div class="card">
+    <h3>California Scholarship Federation</h3>
+    <p class="time">Fall 2025</p>
+    <p>3.5 GPA or higher academic recognition.</p>
+</div>
+
+<div class="card">
+    <h3>AP Scholar Award</h3>
+    <p class="time">July 2025</p>
+    <p>3+ AP exams scored 3 or higher.</p>
+</div>
+
+<div class="card">
+    <h3>Honor Roll Award</h3>
+    <p class="time">2020–2025</p>
+    <p>Consistent 4.0 GPA recognition.</p>
+</div>
+
+<div class="card">
+    <h3>Presidential Award</h3>
+    <p class="time">2020, 2023</p>
+    <p>Academic excellence and teacher recommendation.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+
+<h2>Contact</h2>
+
+<div class="contact-card">
+    <p>Email: <a href="mailto:cathyvo100@gmail.com">cathyvo100@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/kit-cat08" target="_blank">github.com/kit-cat08</a></p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Cathy Vo</p>
+</footer>
+
 </body>
 </html>
