@@ -59,6 +59,7 @@ body::before{
     opacity:0.35;
     z-index:-2;
     pointer-events:none;
+    animation:float 12s ease-in-out infinite;
 }
 
 .blob-1{
@@ -75,6 +76,7 @@ body::before{
     background:#9333ea;
     bottom:-120px;
     right:-80px;
+    animation-delay:2s;
 }
 
 .blob-3{
@@ -83,6 +85,13 @@ body::before{
     background:#6d28d9;
     top:40%;
     left:65%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-25px);}
+    100%{transform:translateY(0px);}
 }
 
 /* CURVES */
@@ -181,32 +190,53 @@ nav a:hover{
     margin:auto;
 }
 
+/* HERO */
 header{
-    padding:10rem 0 4rem;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
 }
 
 .hero{
     position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    padding:0.55rem 1rem;
+    border-radius:999px;
+    border:1px solid rgba(139,92,246,0.18);
+    background:rgba(255,255,255,0.04);
+    color:var(--highlight);
+    margin-bottom:1.5rem;
+    backdrop-filter:blur(10px);
+    animation:fadeUp 1s ease;
 }
 
 .hero h1{
-    font-size:4.5rem;
-    line-height:1;
-    margin-bottom:1rem;
+    font-size:5.5rem;
+    line-height:0.95;
+    margin-bottom:1.4rem;
     background:linear-gradient(to right,#ffffff,#d8ccff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     position:relative;
+    animation:fadeUp 1s ease;
 }
 
 .hero h1::after{
     content:"";
     position:absolute;
-    width:220px;
-    height:220px;
-    background:rgba(139,92,246,0.18);
+    width:240px;
+    height:240px;
+    background:rgba(139,92,246,0.22);
     border-radius:50%;
-    filter:blur(80px);
+    filter:blur(90px);
     top:-60px;
     left:-40px;
     z-index:-1;
@@ -215,7 +245,99 @@ header{
 .hero p{
     color:var(--muted);
     max-width:700px;
-    font-size:1.1rem;
+    font-size:1.15rem;
+    margin-bottom:2rem;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    animation:fadeUp 1.4s ease;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:0.95rem 1.4rem;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#8b5cf6,#7c3aed);
+    color:white;
+    box-shadow:0 10px 35px rgba(139,92,246,0.35);
+}
+
+.primary-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 45px rgba(139,92,246,0.45);
+}
+
+.secondary-btn{
+    border:1px solid rgba(139,92,246,0.2);
+    background:rgba(255,255,255,0.03);
+    color:white;
+}
+
+.secondary-btn:hover{
+    transform:translateY(-4px);
+    background:rgba(139,92,246,0.08);
+}
+
+/* FLOATING CARDS */
+.hero-card{
+    position:absolute;
+    background:rgba(20,24,34,0.72);
+    border:1px solid rgba(139,92,246,0.12);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:1rem 1.2rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+.hero-card h3{
+    color:white;
+    font-size:1rem;
+    margin-bottom:0.2rem;
+}
+
+.hero-card p{
+    color:var(--muted);
+    font-size:0.9rem;
+    margin:0;
+}
+
+.card-1{
+    top:22%;
+    right:10%;
+}
+
+.card-2{
+    bottom:18%;
+    right:18%;
+    animation-delay:2s;
+}
+
+@keyframes floatCard{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0px);}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* SECTIONS */
@@ -437,10 +559,23 @@ html{
 }
 
 /* MOBILE */
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .card-1,
+    .card-2{
+        display:none;
+    }
+
+}
+
 @media(max-width:768px){
 
     .hero h1{
-        font-size:3rem;
+        font-size:3.2rem;
     }
 
     nav ul{
@@ -489,14 +624,46 @@ html{
 
 <!-- HERO -->
 <header>
+
 <div class="container hero">
-    <h1>Cathy Vo</h1>
+
+    <div class="hero-badge">
+        ✦ STEM • Healthcare • Research • Technology
+    </div>
+
+    <h1>
+        Cathy Vo
+    </h1>
 
     <p>
-        STEM student focused on healthcare, research,
-        and technology-driven problem solving.
+        Motivated STEM student passionate about healthcare,
+        leadership, research, and technology-driven problem solving.
+        Focused on creating meaningful impact through innovation and service.
     </p>
+
+    <div class="hero-buttons">
+        <a href="#projects" class="primary-btn">
+            View Projects
+        </a>
+
+        <a href="#contact" class="secondary-btn">
+            Contact Me
+        </a>
+    </div>
+
 </div>
+
+<!-- FLOATING CARDS -->
+<div class="hero-card card-1">
+    <h3>500+ Volunteer Hours</h3>
+    <p>Healthcare & community service</p>
+</div>
+
+<div class="hero-card card-2">
+    <h3>4.0 GPA</h3>
+    <p>Academic excellence & leadership</p>
+</div>
+
 </header>
 
 <!-- ABOUT -->
