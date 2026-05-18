@@ -6,7 +6,7 @@
 
 <title>Cathy Vo | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,7 +26,7 @@
 }
 
 body{
-    font-family:'Inter',sans-serif;
+    font-family:'Plus Jakarta Sans',sans-serif;
     color:var(--text);
     line-height:1.7;
     overflow-x:hidden;
@@ -61,9 +61,29 @@ body::before{
     pointer-events:none;
 }
 
-.blob-1{width:500px;height:500px;background:#7c3aed;top:-120px;left:-100px;}
-.blob-2{width:400px;height:400px;background:#9333ea;bottom:-120px;right:-80px;}
-.blob-3{width:300px;height:300px;background:#6d28d9;top:40%;left:65%;}
+.blob-1{
+    width:500px;
+    height:500px;
+    background:#7c3aed;
+    top:-120px;
+    left:-100px;
+}
+
+.blob-2{
+    width:400px;
+    height:400px;
+    background:#9333ea;
+    bottom:-120px;
+    right:-80px;
+}
+
+.blob-3{
+    width:300px;
+    height:300px;
+    background:#6d28d9;
+    top:40%;
+    left:65%;
+}
 
 /* CURVES */
 .background-lines{
@@ -79,10 +99,33 @@ body::before{
     border-radius:50%;
 }
 
-.curve-1{width:1000px;height:1000px;top:-500px;right:-350px;}
-.curve-2{width:800px;height:800px;bottom:-420px;left:-300px;}
-.curve-3{width:600px;height:600px;top:25%;left:60%;}
-.curve-4{width:350px;height:350px;top:10%;left:8%;}
+.curve-1{
+    width:1000px;
+    height:1000px;
+    top:-500px;
+    right:-350px;
+}
+
+.curve-2{
+    width:800px;
+    height:800px;
+    bottom:-420px;
+    left:-300px;
+}
+
+.curve-3{
+    width:600px;
+    height:600px;
+    top:25%;
+    left:60%;
+}
+
+.curve-4{
+    width:350px;
+    height:350px;
+    top:10%;
+    left:8%;
+}
 
 /* DOTS */
 .dot{
@@ -108,7 +151,7 @@ nav{
     width:100%;
     z-index:1000;
     backdrop-filter:blur(18px);
-    background:rgba(10,12,18,0.95);
+    background:rgba(10,12,18,0.9);
     border-bottom:1px solid rgba(139,92,246,0.12);
 }
 
@@ -118,15 +161,19 @@ nav ul{
     gap:2rem;
     list-style:none;
     padding:1rem;
+    flex-wrap:wrap;
 }
 
 nav a{
     color:var(--muted);
     text-decoration:none;
     font-weight:500;
+    transition:0.25s ease;
 }
 
-nav a:hover{color:white;}
+nav a:hover{
+    color:white;
+}
 
 /* LAYOUT */
 .container{
@@ -135,40 +182,64 @@ nav a:hover{color:white;}
 }
 
 header{
-    padding:8rem 0 2rem;
+    padding:10rem 0 4rem;
+}
+
+.hero{
+    position:relative;
 }
 
 .hero h1{
-    font-size:4rem;
-    background:linear-gradient(to right,#fff,#d8ccff);
+    font-size:4.5rem;
+    line-height:1;
+    margin-bottom:1rem;
+    background:linear-gradient(to right,#ffffff,#d8ccff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+    position:relative;
+}
+
+.hero h1::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(139,92,246,0.18);
+    border-radius:50%;
+    filter:blur(80px);
+    top:-60px;
+    left:-40px;
+    z-index:-1;
 }
 
 .hero p{
     color:var(--muted);
     max-width:700px;
+    font-size:1.1rem;
 }
 
 /* SECTIONS */
 section{
-    padding:2rem 0;
+    padding:3rem 0;
 }
 
 section h2{
-    font-size:2rem;
-    margin-bottom:1rem;
+    font-size:2.1rem;
+    margin-bottom:1.3rem;
 }
 
 /* ABOUT */
 .about-card{
     background:rgba(20,24,34,0.82);
     border:1px solid rgba(139,92,246,0.12);
-    border-radius:22px;
-    padding:1.6rem;
+    border-radius:24px;
+    padding:1.8rem;
+    backdrop-filter:blur(14px);
 }
 
-.about-card p{color:var(--muted);}
+.about-card p{
+    color:var(--muted);
+}
 
 /* STATS */
 .stats{
@@ -181,36 +252,80 @@ section h2{
 .stat-box{
     background:rgba(20,24,34,0.82);
     border:1px solid rgba(139,92,246,0.12);
-    border-radius:18px;
-    padding:1.2rem;
+    border-radius:20px;
+    padding:1.4rem;
+    transition:0.3s ease;
+}
+
+.stat-box:hover{
+    transform:translateY(-6px);
+    border-color:rgba(167,139,250,0.4);
+    box-shadow:0 10px 30px rgba(139,92,246,0.18);
 }
 
 .stat-box h3{
     color:var(--highlight);
-    font-size:1.8rem;
+    font-size:2rem;
 }
 
-.stat-box p{color:var(--muted);}
+.stat-box p{
+    color:var(--muted);
+}
 
 /* CARDS */
 .card{
     background:rgba(20,24,34,0.82);
     border:1px solid rgba(139,92,246,0.12);
-    border-radius:22px;
-    padding:1.5rem;
-    margin-bottom:1rem;
+    border-radius:24px;
+    padding:1.6rem;
+    margin-bottom:1.2rem;
+    backdrop-filter:blur(14px);
+    transition:all 0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(167,139,250,0.4);
+    box-shadow:0 10px 35px rgba(139,92,246,0.16);
+}
+
+.card h3{
+    margin-bottom:0.5rem;
 }
 
 .tag{
     display:inline-block;
     background:rgba(139,92,246,0.12);
-    padding:0.4rem 0.8rem;
+    padding:0.4rem 0.85rem;
     border-radius:999px;
     color:var(--highlight);
     font-size:0.85rem;
+    margin-bottom:0.7rem;
 }
 
-.time{color:var(--muted);}
+.time{
+    color:var(--muted);
+    margin-bottom:0.6rem;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.card a{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    margin-top:1rem;
+    color:var(--purple-light);
+    text-decoration:none;
+    font-weight:600;
+    transition:0.25s ease;
+}
+
+.card a:hover{
+    color:white;
+}
 
 ul{
     margin-top:1rem;
@@ -225,26 +340,117 @@ li{
 /* CONTACT */
 .contact-card{
     background:rgba(20,24,34,0.82);
-    border:1px solid rgba(139,92,246,0.12);
-    border-radius:22px;
-    padding:1.5rem;
+    border:1px solid rgba(139,92,246,0.14);
+    border-radius:24px;
+    padding:2rem;
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(14px);
 }
 
-.contact-card a{
-    color:var(--purple-light);
+.contact-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,0.12),
+            transparent 40%
+        );
+    pointer-events:none;
+}
+
+.contact-intro{
+    color:var(--muted);
+    margin-bottom:1.5rem;
+    max-width:600px;
+    position:relative;
+    z-index:1;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1rem;
+    position:relative;
+    z-index:1;
+}
+
+.contact-link{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:1rem 1.2rem;
+    border-radius:18px;
     text-decoration:none;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(139,92,246,0.12);
+    transition:all 0.3s ease;
+}
+
+.contact-link:hover{
+    transform:translateY(-4px);
+    border-color:rgba(167,139,250,0.45);
+    background:rgba(139,92,246,0.08);
+    box-shadow:0 10px 30px rgba(139,92,246,0.18);
+}
+
+.contact-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.3rem;
+    background:rgba(139,92,246,0.12);
+    color:var(--highlight);
+    flex-shrink:0;
+}
+
+.contact-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.contact-label{
+    color:white;
+    font-weight:600;
+}
+
+.contact-value{
+    color:var(--muted);
+    font-size:0.95rem;
 }
 
 /* FOOTER */
 footer{
     text-align:center;
-    padding:2rem;
+    padding:3rem 1rem;
     color:var(--muted);
 }
 
 /* FIX NAV OFFSET */
 html{
     scroll-padding-top:90px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    nav ul{
+        gap:1rem;
+    }
+
+    section{
+        padding:2rem 0;
+    }
+
 }
 
 </style>
@@ -285,7 +491,11 @@ html{
 <header>
 <div class="container hero">
     <h1>Cathy Vo</h1>
-    <p>STEM student focused on healthcare, research, and technology-driven problem solving.</p>
+
+    <p>
+        STEM student focused on healthcare, research,
+        and technology-driven problem solving.
+    </p>
 </div>
 </header>
 
@@ -304,6 +514,7 @@ html{
 </div>
 
 <div class="stats">
+
     <div class="stat-box">
         <h3>420+</h3>
         <p>Volunteer Hours</p>
@@ -318,6 +529,7 @@ html{
         <h3>4.0</h3>
         <p>GPA</p>
     </div>
+
 </div>
 
 </div>
@@ -331,18 +543,34 @@ html{
 
 <div class="card">
     <h3>User-friendly To-Do List Program</h3>
+
     <span class="tag">Java</span>
+
     <p class="time">2025</p>
-    <p>A practical application designed to help students remain organized during exam season.</p>
-    <a href="https://github.com/phAPCSAperiod2/final-project-kit-cat08" target="_blank">View GitHub →</a>
+
+    <p>
+        A practical application designed to help students remain organized during exam season.
+    </p>
+
+    <a href="https://github.com/phAPCSAperiod2/final-project-kit-cat08" target="_blank">
+        View GitHub →
+    </a>
 </div>
 
 <div class="card">
     <h3>Pokemon Virtual Life Simulator</h3>
+
     <span class="tag">Interactive Simulation</span>
+
     <p class="time">2025</p>
-    <p>Game where users create and care for virtual Pokemon.</p>
-    <a href="https://github.com/kit-cat08/Pokemon-Virtual-Life" target="_blank">View GitHub →</a>
+
+    <p>
+        Game where users create and care for virtual Pokemon.
+    </p>
+
+    <a href="https://github.com/kit-cat08/Pokemon-Virtual-Life" target="_blank">
+        View GitHub →
+    </a>
 </div>
 
 </div>
@@ -356,8 +584,11 @@ html{
 
 <div class="card">
     <h3>Sharp Grossmont Hospital</h3>
+
     <span class="tag">Main Lobby Assistant</span>
-    <p class="time">Oct 2023 – Present | 420+ Hours</p>
+
+    <p class="time">Oct 2023 – Present | 500+ Hours</p>
+
     <ul>
         <li>Assist staff with deliveries and visitor support</li>
         <li>Escort patients and provide wheelchair assistance</li>
@@ -367,8 +598,11 @@ html{
 
 <div class="card">
     <h3>Surfrider Club</h3>
+
     <span class="tag">Vice President</span>
+
     <p class="time">Sept 2024 – Present</p>
+
     <ul>
         <li>Lead meetings and organize beach cleanups</li>
         <li>Coordinate sustainability initiatives</li>
@@ -377,8 +611,11 @@ html{
 
 <div class="card">
     <h3>HEAL Club</h3>
+
     <span class="tag">Co-President</span>
+
     <p class="time">Sept 2025 – Present</p>
+
     <ul>
         <li>Lead health-focused meetings and presentations</li>
         <li>Provide internship and certification opportunities</li>
@@ -396,7 +633,7 @@ html{
 
 <div class="card">
     <h3>California Scholarship Federation</h3>
-    <p class="time">Fall 2025</p>
+    <p class="time">2025–2026</p>
     <p>3.5 GPA or higher academic recognition.</p>
 </div>
 
@@ -408,7 +645,7 @@ html{
 
 <div class="card">
     <h3>Honor Roll Award</h3>
-    <p class="time">2020–2025</p>
+    <p class="time">2020–2026</p>
     <p>Consistent 4.0 GPA recognition.</p>
 </div>
 
@@ -425,11 +662,47 @@ html{
 <section id="contact">
 <div class="container">
 
-<h2>Contact</h2>
+<h2>Let's Connect</h2>
 
 <div class="contact-card">
-    <p>Email: <a href="mailto:cathyvo100@gmail.com">cathyvo100@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/kit-cat08" target="_blank">github.com/kit-cat08</a></p>
+
+    <p class="contact-intro">
+        Interested in collaborating, connecting, or learning more about my work?
+        Feel free to reach out through email or explore my projects on GitHub.
+    </p>
+
+    <div class="contact-grid">
+
+        <a class="contact-link" href="mailto:cathyvo100@gmail.com">
+
+            <div class="contact-icon">
+                ✉
+            </div>
+
+            <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">cathyvo100@gmail.com</span>
+            </div>
+
+        </a>
+
+        <a class="contact-link"
+           href="https://github.com/kit-cat08"
+           target="_blank">
+
+            <div class="contact-icon">
+                ↗
+            </div>
+
+            <div class="contact-text">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/kit-cat08</span>
+            </div>
+
+        </a>
+
+    </div>
+
 </div>
 
 </div>
