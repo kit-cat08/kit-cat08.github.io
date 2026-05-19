@@ -199,6 +199,136 @@ header{
     overflow:hidden;
 }
 
+/* HERO DESIGNS */
+
+.hero-orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.35;
+    pointer-events:none;
+    animation:floatOrb 8s ease-in-out infinite;
+}
+
+.hero-orb-1{
+    width:280px;
+    height:280px;
+    background:#8b5cf6;
+    top:10%;
+    right:12%;
+}
+
+.hero-orb-2{
+    width:220px;
+    height:220px;
+    background:#a855f7;
+    bottom:12%;
+    left:8%;
+    animation-delay:2s;
+}
+
+.hero-rings{
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    border:1px solid rgba(167,139,250,0.14);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation:spin 30s linear infinite;
+}
+
+.hero-rings::before,
+.hero-rings::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(167,139,250,0.12);
+}
+
+.hero-rings::before{
+    inset:60px;
+}
+
+.hero-rings::after{
+    inset:120px;
+}
+
+.hero-grid-overlay{
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(circle at center, black 20%, transparent 80%);
+    opacity:0.6;
+    pointer-events:none;
+}
+
+.hero-stars span{
+    position:absolute;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#d8ccff;
+    box-shadow:0 0 15px rgba(216,204,255,0.9);
+    animation:twinkle 4s infinite ease-in-out;
+}
+
+.hero-stars span:nth-child(1){
+    top:18%;
+    left:20%;
+}
+
+.hero-stars span:nth-child(2){
+    top:28%;
+    right:18%;
+}
+
+.hero-stars span:nth-child(3){
+    top:62%;
+    left:14%;
+}
+
+.hero-stars span:nth-child(4){
+    bottom:18%;
+    right:22%;
+}
+
+.hero-stars span:nth-child(5){
+    top:50%;
+    left:50%;
+}
+
+.hero-stars span:nth-child(6){
+    top:35%;
+    left:70%;
+}
+
+.hero-side-line{
+    position:absolute;
+    width:1px;
+    height:180px;
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(167,139,250,0.5),
+        transparent
+    );
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.left-line{
+    left:5%;
+}
+
+.right-line{
+    right:5%;
+}
+
 .hero{
     position:relative;
     z-index:2;
@@ -288,47 +418,6 @@ header{
     background:rgba(139,92,246,0.08);
 }
 
-/* FLOATING CARDS */
-.hero-card{
-    position:absolute;
-    background:rgba(20,24,34,0.72);
-    border:1px solid rgba(139,92,246,0.12);
-    backdrop-filter:blur(18px);
-    border-radius:22px;
-    padding:1rem 1.2rem;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-    animation:floatCard 6s ease-in-out infinite;
-}
-
-.hero-card h3{
-    color:white;
-    font-size:1rem;
-    margin-bottom:0.2rem;
-}
-
-.hero-card p{
-    color:var(--muted);
-    font-size:0.9rem;
-    margin:0;
-}
-
-.card-1{
-    top:22%;
-    right:10%;
-}
-
-.card-2{
-    bottom:18%;
-    right:18%;
-    animation-delay:2s;
-}
-
-@keyframes floatCard{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-12px);}
-    100%{transform:translateY(0px);}
-}
-
 @keyframes fadeUp{
     from{
         opacity:0;
@@ -337,6 +426,42 @@ header{
     to{
         opacity:1;
         transform:translateY(0);
+    }
+}
+
+@keyframes spin{
+    from{
+        transform:translate(-50%,-50%) rotate(0deg);
+    }
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
+}
+
+@keyframes twinkle{
+    0%{
+        opacity:0.3;
+        transform:scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.6);
+    }
+    100%{
+        opacity:0.3;
+        transform:scale(1);
+    }
+}
+
+@keyframes floatOrb{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-25px);
+    }
+    100%{
+        transform:translateY(0px);
     }
 }
 
@@ -553,7 +678,6 @@ footer{
     color:var(--muted);
 }
 
-/* FIX NAV OFFSET */
 html{
     scroll-padding-top:90px;
 }
@@ -565,9 +689,9 @@ html{
         font-size:4rem;
     }
 
-    .card-1,
-    .card-2{
-        display:none;
+    .hero-rings{
+        width:500px;
+        height:500px;
     }
 
 }
@@ -584,6 +708,10 @@ html{
 
     section{
         padding:2rem 0;
+    }
+
+    .hero-side-line{
+        display:none;
     }
 
 }
@@ -625,6 +753,25 @@ html{
 <!-- HERO -->
 <header>
 
+<div class="hero-orb hero-orb-1"></div>
+<div class="hero-orb hero-orb-2"></div>
+
+<div class="hero-rings"></div>
+
+<div class="hero-grid-overlay"></div>
+
+<div class="hero-stars">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="hero-side-line left-line"></div>
+<div class="hero-side-line right-line"></div>
+
 <div class="container hero">
 
     <div class="hero-badge">
@@ -651,17 +798,6 @@ html{
         </a>
     </div>
 
-</div>
-
-<!-- FLOATING CARDS -->
-<div class="hero-card card-1">
-    <h3>500+ Volunteer Hours</h3>
-    <p>Healthcare & community service</p>
-</div>
-
-<div class="hero-card card-2">
-    <h3>4.0 GPA</h3>
-    <p>Academic excellence & leadership</p>
 </div>
 
 </header>
