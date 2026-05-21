@@ -967,9 +967,9 @@ html{
         <!-- LEFT: BADGE -->
         <div class="cert-badge-wrapper">
 
-            <div
-                data-iframe-width="140"
-                data-iframe-height="180"
+            <div class="credly-badge"
+                data-iframe-width="150"
+                data-iframe-height="200"
                 data-share-badge-id="e1d44586-8410-4e8c-b36c-370a7648e347"
                 data-share-badge-host="https://www.credly.com">
             </div>
@@ -1015,6 +1015,7 @@ src="//cdn.credly.com/assets/utilities/embed.js">
 
 <style>
 
+/* CARD */
 .cert-card{
     background:rgba(20,24,34,0.82);
     border:1px solid rgba(139,92,246,0.12);
@@ -1031,16 +1032,26 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     box-shadow:0 10px 30px rgba(139,92,246,0.18);
 }
 
+/* LAYOUT */
 .cert-layout{
     display:flex;
     align-items:flex-start;
-    gap:1.5rem;
+    gap:2rem;
 }
 
+/* FIX BADGE CUT-OFF */
 .cert-badge-wrapper{
     flex-shrink:0;
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:160px;
+    min-height:220px;
+    overflow:visible;
 }
 
+/* CONTENT */
 .cert-content{
     flex:1;
 }
@@ -1055,6 +1066,7 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     line-height:1.6;
 }
 
+/* BUTTON */
 .cert-btn{
     display:inline-block;
     padding:0.8rem 1.2rem;
@@ -1070,16 +1082,21 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     transform:translateY(-2px);
 }
 
+/* MOBILE */
 @media(max-width:768px){
     .cert-layout{
         flex-direction:column;
         align-items:center;
         text-align:center;
     }
+
+    .cert-badge-wrapper{
+        min-width:auto;
+        min-height:auto;
+    }
 }
 
 </style>
-
 <!-- CONTACT -->
 <section id="contact">
 <div class="container">
