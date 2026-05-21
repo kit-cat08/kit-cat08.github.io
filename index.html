@@ -958,38 +958,48 @@ html{
     <p>Academic excellence and teacher recommendation.</p>
 </div>
 
-<!-- AP CSA / JAVA CERTIFICATION -->
+<!-- AP CSA CERTIFICATION -->
 
 <div class="cert-card">
 
-    <h3>AP Computer Science A (Java)</h3>
+    <div class="cert-layout">
 
-    <p class="cert-description">
-        Completed AP Computer Science A, gaining a strong foundation in Java programming and
-        object-oriented programming (OOP) concepts. Developed skills in problem-solving, algorithm design,
-        and writing efficient, structured code using classes and objects. Learned key OOP principles including
-        encapsulation, inheritance, and polymorphism through hands-on programming projects and coursework.
-    </p>
+        <!-- LEFT: BADGE -->
+        <div class="cert-badge-wrapper">
 
-    <div class="cert-badge-wrapper">
+            <div
+                data-iframe-width="140"
+                data-iframe-height="180"
+                data-share-badge-id="e1d44586-8410-4e8c-b36c-370a7648e347"
+                data-share-badge-host="https://www.credly.com">
+            </div>
 
-        <div
-            data-iframe-width="140"
-            data-iframe-height="180"
-            data-share-badge-id="e1d44586-8410-4e8c-b36c-370a7648e347"
-            data-share-badge-host="https://www.credly.com">
+        </div>
+
+        <!-- RIGHT: CONTENT -->
+        <div class="cert-content">
+
+            <h3>AP Computer Science A (Java)</h3>
+
+            <p class="cert-description">
+                Completed AP Computer Science A, gaining a strong foundation in Java programming and
+                object-oriented programming (OOP) concepts. Developed skills in problem-solving, algorithm design,
+                and writing efficient, structured code using classes and objects. Learned key OOP principles including
+                encapsulation, inheritance, and polymorphism through hands-on programming projects and coursework.
+            </p>
+
+            <a
+                href="https://www.credly.com/badges/e1d44586-8410-4e8c-b36c-370a7648e347/public_url"
+                target="_blank"
+                class="cert-btn">
+
+                Verify Credential →
+
+            </a>
+
         </div>
 
     </div>
-
-    <a
-        href="https://www.credly.com/badges/e1d44586-8410-4e8c-b36c-370a7648e347/public_url"
-        target="_blank"
-        class="cert-btn">
-
-        Verify Credential →
-
-    </a>
 
 </div>
 
@@ -1003,7 +1013,6 @@ async
 src="//cdn.credly.com/assets/utilities/embed.js">
 </script>
 
-<!-- CERT STYLE -->
 <style>
 
 .cert-card{
@@ -1013,7 +1022,6 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     padding:1.5rem;
     margin-top:1.5rem;
     backdrop-filter:blur(14px);
-    text-align:center;
     transition:0.3s ease;
 }
 
@@ -1023,16 +1031,28 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     box-shadow:0 10px 30px rgba(139,92,246,0.18);
 }
 
-.cert-description{
-    color:var(--muted);
-    margin:1rem 0 1.2rem;
-    line-height:1.6;
+.cert-layout{
+    display:flex;
+    align-items:flex-start;
+    gap:1.5rem;
 }
 
 .cert-badge-wrapper{
-    display:flex;
-    justify-content:flex-start; /* LEFT ALIGNED */
-    margin-bottom:1.2rem;
+    flex-shrink:0;
+}
+
+.cert-content{
+    flex:1;
+}
+
+.cert-content h3{
+    margin-bottom:0.5rem;
+}
+
+.cert-description{
+    color:var(--muted);
+    margin:0.8rem 0 1.2rem;
+    line-height:1.6;
 }
 
 .cert-btn{
@@ -1050,7 +1070,16 @@ src="//cdn.credly.com/assets/utilities/embed.js">
     transform:translateY(-2px);
 }
 
+@media(max-width:768px){
+    .cert-layout{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+}
+
 </style>
+
 <!-- CONTACT -->
 <section id="contact">
 <div class="container">
